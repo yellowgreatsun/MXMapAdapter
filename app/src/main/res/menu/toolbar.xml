@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/addMarker"
+        android:title="addMarker"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/updateMarker"
+        android:title="updateMarker"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/addMarkerGif"
+        android:title="addMarkerGif"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/addMarkers"
+        android:title="addMarkers"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/addPolyLine"
+        android:title="addPolyLine"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/clear"
+        android:title="clear"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/mapUtilsTest"
+        android:title="mapUtilsTest"
+        app:showAsAction="never"/>
+</menu>

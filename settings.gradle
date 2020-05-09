@@ -1,0 +1,1 @@
+include ':app', ':mapadapter', ':googlemap_library'
