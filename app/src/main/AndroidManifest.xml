@@ -24,13 +24,13 @@
         android:theme="@style/AppTheme">
         <meta-data
             android:name="com.amap.api.v2.apikey"
-            android:value="245d60d16a89d959dcd1b7dd34f2b936" />
+            android:value="xxx" />
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-            android:value="7jMdwjbN06GnFozXp2ELMEiTtQxwdTNd" />
+            android:value="xxx" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDyQ30E5tq4TF3BkZ0otJXwp-fJAjMmBpY" />
+            android:value="xxx" />
 
         <activity android:name="com.ishare.demo.ui.MapViewActivity">
             <!--<intent-filter>
