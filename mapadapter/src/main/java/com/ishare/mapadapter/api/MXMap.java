@@ -1,23 +1,29 @@
 package com.ishare.mapadapter.api;
 
+import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.View;
 
 import com.ishare.mapadapter.MapConstant;
 import com.ishare.mapadapter.bean.MXLatLng;
+import com.ishare.mapadapter.bean.MXMapScale;
 import com.ishare.mapadapter.bean.MXMarker;
 import com.ishare.mapadapter.bean.MXPolyline;
+import com.ishare.mapadapter.indoor.MapIndoorInfo;
 
 import java.util.List;
 
 public interface MXMap {
 
-    void createMap(View view, MXMap.OnMapReadyCallback onMapReadyCallback);
+    void createMap(View view, OnMapReadyCallback onMapReadyCallback);
 
-    void createMap(android.app.Fragment fragment, MXMap.OnMapReadyCallback onMapReadyCallback);
+    void createMap(android.app.Fragment fragment, OnMapReadyCallback onMapReadyCallback);
 
     void createMap(android.support.v4.app.Fragment fragment, OnMapReadyCallback onMapReadyCallback);
 
-    void uiSetting();
+    void uiSetting(Context context);
+
+    void showMyLocation(Context context, boolean enable, Bitmap icon);
 
     void setLoadOfflineData(boolean enabled);
 
@@ -31,13 +37,15 @@ public interface MXMap {
 
     void animateCamera(List<MXLatLng> mxLatLngList, int duration);
 
-    String addMarker(MXMarker mxMarker);
+    String addMarker(Context context, MXMarker mxMarker);
 
-    String addMarker(MXMarker mxMarker, boolean isAnimate);
+    String addMarker(Context context, MXMarker mxMarker, boolean isAnimate);
 
-    List<String> addMarkers(List<MXMarker> mxMarkerList);
+    List<String> addMarkers(Context context, List<MXMarker> mxMarkerList);
 
-    void updateMarker(MXMarker mxMarker);
+    void updateMarker(Context context, MXMarker mxMarker);
+
+    void updateMarker(Context context, MXMarker mxMarker, boolean isAnimate);
 
     void removeMarker(MXMarker mxMarker);
 
@@ -49,12 +57,24 @@ public interface MXMap {
 
     void setMapType(MapConstant.MapType mapType);
 
+    MXMapScale getMapScaleParams(float zoom);
+
+    void setIndoorMapFloor(MapIndoorInfo mapIndoorInfo);
+
+    void setOnMapClickListener(OnMapClickListener mapClickListener);
+
     void setOnMarkerClickListener(OnMarkerClickListener markerClickListener);
 
     void setOnCameraChangeListener(OnCameraChangeListener onCameraChangeListener);
 
+    void setOnIndoorMapListener(OnIndoorMapListener onIndoorMapListener);
+
     interface OnMapReadyCallback {
         void onMapReady();
+    }
+
+    interface OnMapClickListener {
+        void onMapClick();
     }
 
     interface OnMarkerClickListener {
@@ -65,5 +85,9 @@ public interface MXMap {
         void onCameraChange(float zoom, double latitude, double longitude);
 
         void onCameraChangeFinish(float zoom, double latitude, double longitude);
+    }
+
+    interface OnIndoorMapListener{
+        void onIndoormapInfo(boolean isIndoor, MapIndoorInfo mapIndoorInfo);
     }
 }

@@ -1,1 +1,1 @@
-include ':app', ':mapadapter', ':googlemap_library'
+include ':app', ':mapadapter'

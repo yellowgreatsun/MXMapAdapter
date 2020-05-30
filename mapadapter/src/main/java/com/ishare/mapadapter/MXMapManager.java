@@ -3,20 +3,16 @@ package com.ishare.mapadapter;
 import android.content.Context;
 
 import com.ishare.mapadapter.amapimpl.AMapFragmentImpl;
-import com.ishare.mapadapter.api.MXMapFragment;
-import com.ishare.mapadapter.api.MXMapUtils;
-import com.ishare.mapadapter.api.MXMapView;
 import com.ishare.mapadapter.amapimpl.AMapImpl;
 import com.ishare.mapadapter.amapimpl.AMapUtilsImpl;
 import com.ishare.mapadapter.amapimpl.AMapViewImpl;
+import com.ishare.mapadapter.api.MXMapFragment;
+import com.ishare.mapadapter.api.MXMapUtils;
+import com.ishare.mapadapter.api.MXMapView;
 import com.ishare.mapadapter.bdmapimpl.BDMapFragmentImpl;
 import com.ishare.mapadapter.bdmapimpl.BDMapImpl;
 import com.ishare.mapadapter.bdmapimpl.BDMapUtilsImpl;
 import com.ishare.mapadapter.bdmapimpl.BDMapViewImpl;
-import com.ishare.mapadapter.googlemapimpl.GoogleMapFragmentImpl;
-import com.ishare.mapadapter.googlemapimpl.GoogleMapImpl;
-import com.ishare.mapadapter.googlemapimpl.GoogleMapUtilsImpl;
-import com.ishare.mapadapter.googlemapimpl.GoogleMapViewImpl;
 
 public class MXMapManager {
 
@@ -47,9 +43,6 @@ public class MXMapManager {
             case BDMAP:
                 BDMapImpl.initAppMapManager(context);
                 break;
-            case GOOGLEMAP:
-                GoogleMapImpl.initAppMapManager(context);
-                break;
             default:
                 AMapImpl.initAppMapManager(context);
                 break;
@@ -71,9 +64,6 @@ public class MXMapManager {
             case BDMAP:
                 BDMapImpl.initActivityMapManager(context,sdcardDir);
                 break;
-            case GOOGLEMAP:
-                GoogleMapImpl.initActivityMapManager(context,sdcardDir);
-                break;
             default:
                 AMapImpl.initActivityMapManager(context,sdcardDir);
                 break;
@@ -94,9 +84,6 @@ public class MXMapManager {
                 break;
             case BDMAP:
                 mMXMapView = new BDMapViewImpl();
-                break;
-            case GOOGLEMAP:
-                mMXMapView = new GoogleMapViewImpl();
                 break;
             default:
                 mMXMapView = new AMapViewImpl();
@@ -120,9 +107,6 @@ public class MXMapManager {
             case BDMAP:
                 mMXMapView = new BDMapFragmentImpl();
                 break;
-            case GOOGLEMAP:
-                mMXMapView = new GoogleMapFragmentImpl();
-                break;
             default:
                 mMXMapView = new AMapFragmentImpl();
                 break;
@@ -144,9 +128,6 @@ public class MXMapManager {
                 break;
             case BDMAP:
                 mMXMapUtils = new BDMapUtilsImpl();
-                break;
-            case GOOGLEMAP:
-                mMXMapUtils = new GoogleMapUtilsImpl();
                 break;
             default:
                 mMXMapUtils = new AMapUtilsImpl();

@@ -28,23 +28,13 @@ public class BDMapFragmentImpl implements MXMapFragment {
     }
 
     @Override
-    public void createMap(OnMapReadyCallback onMapReadyCallback) {
+    public void createMap(final OnMapReadyCallback onMapReadyCallback) {
 
-        MXMap aMapManager = new BDMapImpl();
+        final MXMap bdMapManager = new BDMapImpl();
         if (supportMapFragment != null) {
-            aMapManager.createMap(supportMapFragment, new MXMap.OnMapReadyCallback() {
-                @Override
-                public void onMapReady() {
-                    onMapReadyCallback.onMapReady(aMapManager);
-                }
-            });
+            bdMapManager.createMap(supportMapFragment, () -> onMapReadyCallback.onMapReady(bdMapManager));
         } else if (mapFragment != null) {
-            aMapManager.createMap(mapFragment, new MXMap.OnMapReadyCallback() {
-                @Override
-                public void onMapReady() {
-                    onMapReadyCallback.onMapReady(aMapManager);
-                }
-            });
+            bdMapManager.createMap(mapFragment, () -> onMapReadyCallback.onMapReady(bdMapManager));
         }
     }
 }

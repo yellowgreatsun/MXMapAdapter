@@ -27,23 +27,13 @@ public class AMapFragmentImpl implements MXMapFragment {
     }
 
     @Override
-    public void createMap(OnMapReadyCallback onMapReadyCallback) {
+    public void createMap(final MXMapFragment.OnMapReadyCallback onMapReadyCallback) {
 
-        MXMap aMapManager = new AMapImpl();
+        final MXMap aMapManager = new AMapImpl();
         if (supportMapFragment != null) {
-            aMapManager.createMap(supportMapFragment, new MXMap.OnMapReadyCallback() {
-                @Override
-                public void onMapReady() {
-                    onMapReadyCallback.onMapReady(aMapManager);
-                }
-            });
+            aMapManager.createMap(supportMapFragment, () -> onMapReadyCallback.onMapReady(aMapManager));
         } else if (mapFragment != null) {
-            aMapManager.createMap(mapFragment, new MXMap.OnMapReadyCallback() {
-                @Override
-                public void onMapReady() {
-                    onMapReadyCallback.onMapReady(aMapManager);
-                }
-            });
+            aMapManager.createMap(mapFragment, () -> onMapReadyCallback.onMapReady(aMapManager));
         }
     }
 }

@@ -20,9 +20,9 @@ public class AMapViewImpl implements MXMapView {
     }
 
     @Override
-    public void createMap(MXMapView.OnMapReadyCallback onMapReadyCallback) {
+    public void createMap(final MXMapView.OnMapReadyCallback onMapReadyCallback) {
 
-        MXMap aMapManager = new AMapImpl();
+        final MXMap aMapManager = new AMapImpl();
         aMapManager.createMap(mapView, () -> onMapReadyCallback.onMapReady(aMapManager));
     }
 

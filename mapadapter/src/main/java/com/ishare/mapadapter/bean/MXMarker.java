@@ -14,8 +14,8 @@ public class MXMarker {
     /*------------------------------------ params start ----------------------------------*/
 
     public MXLatLng mxLatLng;
-    public MXMarker setMxLatLng(MXLatLng mxLatLng){
-        this.mxLatLng=mxLatLng;
+    public MXMarker setMXLatLng(MXLatLng MXLatLng){
+        this.mxLatLng = MXLatLng;
         return this;
     }
 
@@ -40,10 +40,10 @@ public class MXMarker {
         this.bitmapArray=bitmapArray;
         return this;
     }
-    public MXMarker setResIdArray(int[] resIdArray){
-        this.bitmapArray=new Bitmap[resIdArray.length];
-        for(int i=0;i<resIdArray.length;i++){
-            this.bitmapArray[i]=BitmapFactory.decodeStream(context.getResources().openRawResource(resIdArray[i]));
+    public MXMarker setResIdArray(int[] resIdArray) {
+        this.bitmapArray = new Bitmap[resIdArray.length];
+        for (int i = 0; i < resIdArray.length; i++) {
+            this.bitmapArray[i] = BitmapFactory.decodeStream(context.getResources().openRawResource(resIdArray[i]));
         }
         return this;
     }

@@ -5,7 +5,7 @@ public class MapConstant {
 
     public enum MapProvider {
 
-        AMAP, BDMAP, GOOGLEMAP
+        AMAP, BDMAP
     }
 
     public enum MapType {

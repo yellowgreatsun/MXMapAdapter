@@ -14,7 +14,7 @@ public class MXPolyline {
     /*------------------------------------ params start ----------------------------------*/
 
     public List<MXLatLng> mxLatLngList;
-    public MXPolyline setMxLatLngList(List<MXLatLng> mxLatLngList) {
+    public MXPolyline setMXLatLngList(List<MXLatLng> mxLatLngList) {
         this.mxLatLngList = mxLatLngList;
         return this;
     }
@@ -25,7 +25,7 @@ public class MXPolyline {
         return this;
     }
 
-    public float width;
+    public float width;  //兼容高德、百度地图时，以高德为准
     public MXPolyline setWidth(float width) {
         this.width = width;
         return this;

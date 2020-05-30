@@ -25,6 +25,6 @@ public interface MXMapView {
     void onSaveInstanceState(Bundle bundle);
 
     interface OnMapReadyCallback {
-        void onMapReady(MXMap mxMap);
+        void onMapReady(MXMap MXMap);
     }
 }

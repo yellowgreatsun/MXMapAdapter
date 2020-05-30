@@ -72,7 +72,7 @@ public class MapFragmentActivity extends FragmentActivity {
 
     private void initMapSetting() {
 
-        mMXMap.uiSetting();
+        mMXMap.uiSetting(this);
         mMXMap.setMapType(Constant.MAP_TYPE);
     }
 
@@ -116,8 +116,8 @@ public class MapFragmentActivity extends FragmentActivity {
 
         int resId = R.mipmap.location;
         MXLatLng mxLatLng = new MXLatLng(MapFragmentActivity.this, 39.761, 116.434, Constant.COORDINATE_TYPE);
-        mxMarker = new MXMarker(this).setMxLatLng(mxLatLng).setResId(resId).setAnchor(0.5f, 0.65f).setzIndex(0f).setPeriod(10).setIsFlat(true);
-        String markerId = mMXMap.addMarker(mxMarker);
+        mxMarker = new MXMarker(this).setMXLatLng(mxLatLng).setResId(resId).setAnchor(0.5f, 0.65f).setzIndex(0f).setPeriod(10).setIsFlat(true);
+        String markerId = mMXMap.addMarker(this, mxMarker);
         Log.i(TAG, "markerId=" + markerId);
 
         mMXMap.animateCamera(mxLatLng, 16, 500);
@@ -130,8 +130,8 @@ public class MapFragmentActivity extends FragmentActivity {
         int[] reaIdArray = new int[]{R.mipmap.location1, R.mipmap.location2, R.mipmap.location3, R.mipmap.location4,
                 R.mipmap.location5, R.mipmap.location6, R.mipmap.location7, R.mipmap.location8};
         MXLatLng animateMxLatLng = new MXLatLng(MapFragmentActivity.this, 39.755, 116.434, Constant.COORDINATE_TYPE);
-        animateMxMarker = new MXMarker(this).setMxLatLng(animateMxLatLng).setResIdArray(reaIdArray).setAnchor(0.5f, 0.65f).setzIndex(0f).setPeriod(10).setIsFlat(true);
-        String animateMarkerId = mMXMap.addMarker(animateMxMarker, true);
+        animateMxMarker = new MXMarker(this).setMXLatLng(animateMxLatLng).setResIdArray(reaIdArray).setAnchor(0.5f, 0.65f).setzIndex(0f).setPeriod(10).setIsFlat(true);
+        String animateMarkerId = mMXMap.addMarker(this, animateMxMarker, true);
         Log.i(TAG, "animateMarkerId=" + animateMarkerId);
 
         mMXMap.animateCamera(animateMxLatLng, 16, 500);
@@ -143,8 +143,8 @@ public class MapFragmentActivity extends FragmentActivity {
             return;
 
         MXLatLng mxLatLng = new MXLatLng(MapFragmentActivity.this, 39.771, 116.434, Constant.COORDINATE_TYPE);
-        mxMarker.setMxLatLng(mxLatLng).setResId(R.mipmap.location).setAnchor(0.5f, 0.65f).setzIndex(0f).setPeriod(10).setIsFlat(true);
-        mMXMap.updateMarker(mxMarker);
+        mxMarker.setMXLatLng(mxLatLng).setResId(R.mipmap.location).setAnchor(0.5f, 0.65f).setzIndex(0f).setPeriod(10).setIsFlat(true);
+        mMXMap.updateMarker(this, mxMarker);
 
         mMXMap.animateCamera(mxLatLng, 16, 500);
     }
@@ -161,11 +161,11 @@ public class MapFragmentActivity extends FragmentActivity {
         mxLatLngList.add(new MXLatLng(MapFragmentActivity.this, 39.561, 116.734, Constant.COORDINATE_TYPE));
 
         int resId = R.mipmap.location;
-        MXMarker mxMarker1 = new MXMarker(this).setMxLatLng(new MXLatLng(this, 39.761, 116.434, Constant.COORDINATE_TYPE)).setResId(resId).setAnchor(0.5f, 0.65f).setzIndex(0f).setPeriod(10).setIsFlat(true);
-        MXMarker mxMarker2 = new MXMarker(this).setMxLatLng(new MXLatLng(this, 39.761, 116.834, Constant.COORDINATE_TYPE)).setResId(resId).setAnchor(0.5f, 0.65f).setzIndex(0f).setPeriod(10).setIsFlat(true);
-        MXMarker mxMarker3 = new MXMarker(this).setMxLatLng(new MXLatLng(this, 39.561, 116.534, Constant.COORDINATE_TYPE)).setResId(resId).setAnchor(0.5f, 0.65f).setzIndex(0f).setPeriod(10).setIsFlat(true);
-        MXMarker mxMarker4 = new MXMarker(this).setMxLatLng(new MXLatLng(this, 39.901, 116.634, Constant.COORDINATE_TYPE)).setResId(resId).setAnchor(0.5f, 0.65f).setzIndex(0f).setPeriod(10).setIsFlat(true);
-        MXMarker mxMarker5 = new MXMarker(this).setMxLatLng(new MXLatLng(this, 39.561, 116.734, Constant.COORDINATE_TYPE)).setResId(resId).setAnchor(0.5f, 0.65f).setzIndex(0f).setPeriod(10).setIsFlat(true);
+        MXMarker mxMarker1 = new MXMarker(this).setMXLatLng(new MXLatLng(this, 39.761, 116.434, Constant.COORDINATE_TYPE)).setResId(resId).setAnchor(0.5f, 0.65f).setzIndex(0f).setPeriod(10).setIsFlat(true);
+        MXMarker mxMarker2 = new MXMarker(this).setMXLatLng(new MXLatLng(this, 39.761, 116.834, Constant.COORDINATE_TYPE)).setResId(resId).setAnchor(0.5f, 0.65f).setzIndex(0f).setPeriod(10).setIsFlat(true);
+        MXMarker mxMarker3 = new MXMarker(this).setMXLatLng(new MXLatLng(this, 39.561, 116.534, Constant.COORDINATE_TYPE)).setResId(resId).setAnchor(0.5f, 0.65f).setzIndex(0f).setPeriod(10).setIsFlat(true);
+        MXMarker mxMarker4 = new MXMarker(this).setMXLatLng(new MXLatLng(this, 39.901, 116.634, Constant.COORDINATE_TYPE)).setResId(resId).setAnchor(0.5f, 0.65f).setzIndex(0f).setPeriod(10).setIsFlat(true);
+        MXMarker mxMarker5 = new MXMarker(this).setMXLatLng(new MXLatLng(this, 39.561, 116.734, Constant.COORDINATE_TYPE)).setResId(resId).setAnchor(0.5f, 0.65f).setzIndex(0f).setPeriod(10).setIsFlat(true);
 
         List<MXMarker> mxMarkerList = new ArrayList<>();
         mxMarkerList.add(mxMarker1);
@@ -173,7 +173,7 @@ public class MapFragmentActivity extends FragmentActivity {
         mxMarkerList.add(mxMarker3);
         mxMarkerList.add(mxMarker4);
         mxMarkerList.add(mxMarker5);
-        List<String> markerIdList = mMXMap.addMarkers(mxMarkerList);
+        List<String> markerIdList = mMXMap.addMarkers(this, mxMarkerList);
         for (String markerId : markerIdList) {
             Log.i(TAG, "markerId=" + markerId);
         }
@@ -193,7 +193,7 @@ public class MapFragmentActivity extends FragmentActivity {
         mxLatLngList.add(new MXLatLng(MapFragmentActivity.this, 39.561, 116.734, Constant.COORDINATE_TYPE));
         mxLatLngList.add(new MXLatLng(MapFragmentActivity.this, 39.761, 116.434, Constant.COORDINATE_TYPE));
 
-        MXPolyline mxPolyline=new MXPolyline(this).setMxLatLngList(mxLatLngList).setColorId(Color.GREEN).setWidth(10f);
+        MXPolyline mxPolyline=new MXPolyline(this).setMXLatLngList(mxLatLngList).setColorId(Color.GREEN).setWidth(10f);
         mMXMap.addPolyline(mxPolyline);
 
         mMXMap.animateCamera(mxLatLngList, 500);
